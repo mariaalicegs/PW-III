@@ -1,0 +1,206 @@
+<!-- 
+Quinta Potência
+Sexta Potência
+---------------------
+Bhaskara
+Média aritmética entre 4 números
+Verificar se um número é par ou ímpar!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="css_ex1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form action="">
+        <fieldset width=600>
+            <legend><h1>Cálculos com apenas um número:</h1></legend>
+
+            <label for="num1">
+                <h2>Número:</h2>
+            </label>
+                <input type="number" id="n1" name="numero1" size="40" placeholder="Digite um número"> <p>
+                    
+            <button type="button" onclick="calcular()"><h2>Calcular</h2></button>
+        </fieldset>
+
+        <script>
+            function calcular(){
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var dobro = n1*2
+                document.getElementById('dbr').innerText = dobro;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var triplo = n1*3
+                document.getElementById('trp').innerText = triplo;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var quat = n1*4
+                document.getElementById('qut').innerText = quat;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var quint = n1*5
+                document.getElementById('qt').innerText = quint;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var sext = n1*6
+                document.getElementById('st').innerText = sext;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var quad = n1*n1
+                document.getElementById('qd').innerText = quad;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var cubo = n1*n1*n1
+                document.getElementById('cb').innerText = cubo;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var quarta = n1*n1*n1*n1
+                document.getElementById('qrt').innerText = quarta;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var quinta = n1*n1*n1*n1*n1
+                document.getElementById('quint').innerText = quinta;
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var sexta = n1*n1*n1*n1*n1*n1
+                document.getElementById('sxt').innerText = sexta;
+            }
+        </script>
+    </form>
+    <h3>Dobro: <span id="dbr"></span></h3>
+    <h3>Triplo: <span id="trp"></span></h3>
+    <h3>Quádruplo: <span id="qut"></span></h3>
+    <h3>Quíntuplo: <span id="qt"></span></h3>
+    <h3>Sêxtuplo: <span id="st"></span></h3>
+    <h3>Quadrado: <span id="qd"></span></h3>
+    <h3>Cubo: <span id="cb"></span></h3>
+    <h3>Quarta Potência: <span id="qrt"></span></h3>
+    <h3>Quinta Potência: <span id="quint"></span></h3>
+    <h3>Sexta Potência: <span id="sxt"></span></h3>
+
+    <form action="">
+        <fieldset width=600>
+            <legend><h1>Bhaskara:</h1></legend>
+
+            <label for="numr1">
+                <h2>1ºNúmero:</h2>
+            </label>
+                <input type="number" id="num1" name="numer1" size="40" placeholder="Digite um número"> <p>
+            
+            <label for="numr2">
+                <h2>2ºNúmero:</h2>
+            </label>
+            <input type="number" id="num2" name="numer2" size="40" placeholder="Digite um número"> <p>
+            
+            <label for="numr3">
+                <h2>3ºNúmero:</h2>
+            </label>
+                <input type="number" id="num3" name="numer3" size="40" placeholder="Digite um número"> <p>
+            
+
+            <button type="button" onclick="calculo()"><h2>Calcular</h2></button>
+        </fieldset>
+
+        <script>
+            function calculo(){
+                var n1 = parseFloat(document.getElementById('num1').value);
+                var n2 = parseFloat(document.getElementById('num2').value);
+                var n3 = parseFloat(document.getElementById('num3').value);
+
+                var delta= (n2 * n2) - (4 * n1 * n3)
+                if (delta>=0){
+                    var x1= (-n2 + Math.sqrt(delta)) / (2 * n1)
+                    var x2= (-n2 - Math.sqrt(delta)) / (2 * n1)
+                    
+                    document.getElementById('resultado1').innerText = x1
+                    document.getElementById('resultado2').innerText = x2
+                }
+                
+            }
+        </script>
+    </form>
+    <h2>Resultado: &nbsp; x1=<span id='resultado1'></span> &nbsp;&nbsp;&nbsp; x2=<span id='resultado2'></span></h2>
+
+    <form action="">
+        <fieldset width=600>
+            <legend><h1>Média Aritmética:</h1></legend>
+
+            <label for="num1">
+                <h2>1ºNúmero:</h2>
+            </label>
+                <input type="number" id="nm1" name="numero1" size="40" placeholder="Digite um número"> <p>
+            
+            <label for="num2">
+                <h2>2ºNúmero:</h2>
+            </label>
+            <input type="number" id="nm2" name="numero2" size="40" placeholder="Digite um número"> <p>
+            
+            <label for="num3">
+                <h2>3ºNúmero:</h2>
+            </label>
+                <input type="number" id="nm3" name="numero3" size="40" placeholder="Digite um número"> <p>
+
+            <label for="num4">
+                <h2>4ºNúmero:</h2>
+            </label>
+                <input type="number" id="nm4" name="numero3" size="40" placeholder="Digite um número"> <p>
+            
+
+            <button type="button" onclick="calculo()"><h2>Calcular</h2></button>
+        </fieldset>
+
+        <script>
+            function calculo(){
+                var n1 = parseFloat(document.getElementById('nm1').value);
+                var n2 = parseFloat(document.getElementById('nm2').value);
+                var n3 = parseFloat(document.getElementById('nm3').value);
+                var n4 = parseFloat(document.getElementById('nm4').value);
+
+                var soma= n1+n2+n3+n4;
+                var media= soma/4
+                    
+                document.getElementById('resultado').innerText = media 
+            }
+        </script>
+    </form>
+    <h2>Média: <span id='resultado'></span></h2>
+
+    <form action="">
+        <fieldset width=600>
+            <legend><h1>Ímpar ou Par:</h1></legend>
+
+            <label for="num1">
+                <h2>Número:</h2>
+            </label>
+                <input type="number" id="ne1" name="numero1" size="40" placeholder="Digite um número"> <p>
+                    
+            <button type="button" onclick="verificar()"><h2>Verificar</h2></button>
+        </fieldset>
+
+        <script>
+            function verificar(){
+                var num1 = parseFloat(document.getElementById('ne1').value);
+                var resto = num1 % 2;
+
+                console.log("Número digitado:",num1);
+
+                if (resto===0){
+                    document.getElementById('resposta').innerText = "par"
+                }
+                else{
+                    document.getElementById('resposta').innerText = "ímpar"
+                }
+            }
+        </script>
+    </form>
+    <h2>O número é <span id='resposta'></span></h2>
+</body>
+</html>
