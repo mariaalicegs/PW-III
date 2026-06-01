@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Gastos</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>CONTROLE DE GASTOS</header>
+    <br>
+    <br>
+
+    <form id="form-gasto">
+        <input type="text" id="descricao" placeholder="Descrição" required>
+        <input type="number" id="valor" placeholder="Valor" required>
+        <select id="categoria">
+            <option value="Alimentação">Alimentação</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Outro">Outro</option>
+        </select>
+        <div align="center">
+        <button type="submit">Adicionar</button>
+        </div>
+    </form>
+    <br>
+
+    <div align="center">
+        Filtrar: 
+        <select id="filtro-categoria">
+            <option value="Todos">Todos</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Outro">Outro</option>
+        </select>
+    </div>
+    <br>
+
+    <div id="lista-gastos" align="center"></div>
+
+    <div id="total-container" align="center">
+        Total: R$ <span id="total-valor">0.00</span>
+    </div>
+
+    <script>
+        let gastos = [];
+
+        // Elementos
+        const form = document.querySelector('#form-gasto');
+        const listaDiv = document.querySelector('#lista-gastos');
+        const filtro = document.querySelector('#filtro-categoria');
+        const totalSpan = document.querySelector('#total-valor');
+
+        // Carregar ao iniciar
+        window.onload = () => {
+            const salvos = localStorage.getItem('gastos_v3');
+            if (salvos) {
+                gastos = JSON.parse(salvos);
+                renderizar(gastos);
+            }
+        };
+
+        // Adicionar
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const novoGasto = {
+                id: Date.now(),
+                desc: document.querySelector('#descricao').value,
+                valor: parseFloat(document.querySelector('#valor').value),
+                cat: document.querySelector('#categoria').value
+            };
+
+            // Validação simples (if)
+            if(novoGasto.desc && novoGasto.valor > 0) {
+                gastos.push(novoGasto);
+                atualizarTudo();
+                form.reset();
+            }
+        };
+
+        // Remover
+        function remover(id) {
+            gastos = gastos.filter(g => g.id !== id);
+            atualizarTudo();
+        }
+
+        // Filtro (switch)
+        filtro.onchange = () => {
+            const opcao = filtro.value;
+            let filtrados;
+
+            switch(opcao) {
+                case 'Todos': filtrados = gastos; break;
+                default: filtrados = gastos.filter(g => g.cat === opcao);
+            }
+            renderizar(filtrados);
+        };
+
+        // Renderizar Lista (forEach + createElement)
+        function renderizar(dados) {
+            listaDiv.innerHTML = "";
+            dados.forEach(g => {
+                const item = document.createElement('div');
+                item.className = "item-gasto";
+                item.innerHTML = `
+                    <span>${g.desc} (${g.cat})</span>
+                    <span>R$ ${g.valor.toFixed(2)} 
+                        <button onclick="remover(${g.id})">Remover</button>
+                    </span>
+                `;
+                listaDiv.appendChild(item);
+            });
+            calcular();
+        }
+
+        function calcular() {
+            const total = gastos.reduce((acc, g) => acc + g.valor, 0);
+            totalSpan.innerText = total.toFixed(2);
+        }
+
+        function atualizarTudo() {
+            localStorage.setItem('gastos_v3', JSON.stringify(gastos));
+            renderizar(gastos);
+            filtro.value = "Todos"; // Reseta o filtro para mostrar o novo item
+        }
+    </script>
+</body>
+</html>
