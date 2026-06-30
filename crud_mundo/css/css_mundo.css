@@ -1,0 +1,204 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Asap", sans-serif;
+}
+
+body{
+    background-image:url("imgs/fundo.jpg");
+    background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+}
+
+header{
+    background:#00030f;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-weight: 700;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+nav{
+    background:#000724;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+}
+
+nav ul li{
+    margin:0 15px;
+}
+
+nav ul li a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    background:#ffd28e;
+    color:#000416;
+    border-radius: 10px;
+}
+
+main{
+    width:90%;
+    margin:auto;
+    margin-top:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#ffffff8e;
+    border-radius:10px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 0 10px #ffffff3d;
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#000416;
+}
+
+.card p{
+    margin-bottom:20px;
+}
+
+.card a{
+    display:inline-block;
+    background:#000724;
+    color:white;
+    text-decoration:none;
+    padding:10px 25px;
+    border-radius:5px;
+    transition:.3s;
+}
+
+.card a:hover{
+    background:#ffd28e;
+    color:#000416;
+}
+
+footer{
+    background:#000724;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:50px;
+}
+
+/* Formulários */
+
+form{
+    background:#ffffff8e;
+    width:600px;
+    max-width:95%;
+    margin:30px auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:#ffffff3d;
+}
+
+form h2{
+    text-align:center;
+    margin-bottom:20px;
+    border-radius: 10px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:bold;
+    border-radius: 10px;
+}
+
+input,
+select{
+    width:100%;
+    padding:10px;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 25px;
+    background:#000724;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ffd28e;
+    color: #000416;
+}
+
+/* Tabelas */
+
+table{
+    width:95%;
+    margin:auto;
+    border-collapse:collapse;
+    background:#ffffff8e;
+    margin-top:30px;
+    border-radius: 20px;
+}
+
+table th{
+    background:#000724;
+    color:white;
+    padding:12px;
+}
+
+table td{
+    padding:10px;
+    text-align:center;
+}
+
+table tr:nth-child(even){
+    background:#ffffff8e;
+}
+
+.editar{
+    color:#006823;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.excluir{
+    color:#880000;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.novo{
+    display:block;
+    width:180px;
+    margin:20px auto;
+    text-align:center;
+    background:#16a34a;
+    color:white;
+    padding:12px;
+    border-radius:5px;
+    text-decoration:none;
+}
+
+.novo:hover{
+    background:#15803d;
+}
