@@ -645,9 +645,11 @@ create table tb_usuarios(
 username varchar(30) primary key not null,
 password varchar(128) not null,
 nome varchar(100) not null,
-qtd_acesso int not null,
-status char(1) not null,
-tipo char(1) not null
+qtd_acesso int not null default 0,
+status char(1) not null default 'A',
+tipo char(1) not null,
+tentativas int not null default 0,
+primeiro_acesso char(1) not null default 'S'
 );
 
 create table tb_logs(
@@ -660,19 +662,9 @@ username varchar(30) not null,
 foreign key (username) references tb_usuarios(username)
 );
 
-insert into tb_usuarios (username,password,nome,status,tipo)
+insert into tb_usuarios (username,password,nome,qtd_acesso,status,tipo,tentativas,primeiro_acesso)
 values
-('mariaalicegds','123456','Maria Alice','A','A'),
-('user123','123456','Usuário','A','C');
+('mariaalicegds','123456','Maria Alice',0,'A','A',0,'S'),
+('user123','123456','Usuário',0,'A','C',0,'S');
 
 select * from tb_usuarios;
-
-create table tb_governantes(
-id_governante int primary key not null auto_increment,
-nome varchar(100) not null,
-partido varchar(100) not null,
-dt_nascimento date not null,
-idade int not null,
-inicio_mandato date not null,
-fim_mandato date
-);
