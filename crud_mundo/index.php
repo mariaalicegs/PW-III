@@ -18,6 +18,7 @@ include("conexao.php");
 <nav><ul>
 <li><a href="index.php">Início</a></li><li><a href="continentes.php">Continentes</a></li>
 <li><a href="paises.php">Países</a></li><li><a href="cidades.php">Cidades</a></li><li><a href="governantes.php">Governantes</a></li>
+<li><a href="manutencao_senha.php">Alterar Senha</a></li>
 <li><a href="logout.php">Sair</a></li>
 </ul></nav>
 <main>
