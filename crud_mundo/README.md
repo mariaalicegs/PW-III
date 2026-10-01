@@ -50,6 +50,7 @@ crud-mundo/
 ├── css/          # Arquivos de estilo (CSS) e imagens
 ├── js/        # Arquivos script (JS)
 └── README.md        # Informações do projeto
+```
 
 ---
 
