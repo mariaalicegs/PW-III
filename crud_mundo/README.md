@@ -47,9 +47,9 @@ O objetivo do projeto é demonstrar a implementação prática de uma arquitetur
 
 ```text
 crud-mundo/
-├── css/          # Arquivos de estilo (CSS) e imagens
-├── js/        # Arquivos script (JS)
-└── README.md        # Informações do projeto
+├── css/Arquivos de estilo (CSS) e imagens
+├── js/Arquivos script (JS)
+└── README.md #Informações do projeto
 ```
 
 ---
@@ -73,5 +73,5 @@ crud-mundo/
 ---
 
 ## Autor
-**Nome:** Maria Alice Gomes da Silva
-**Curso:** Desenvolvimento de Sistemas
+- **Nome:** Maria Alice Gomes da Silva
+- **Curso:** Desenvolvimento de Sistemas
